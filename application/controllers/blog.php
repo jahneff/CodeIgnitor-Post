@@ -65,7 +65,7 @@ class Blog extends CI_Controller {
             redirect(base_url() . 'index.php/users/login');
         }
         if ($this->input->post()) {
-            $data = array('post_title' => $this->input->post('post_title'), 'post' => $this->input->post('post'), 'active' => 1,);
+            $data = array('post_title' => $this->input->post('post_title'), 'post' => $this->input->post('post'), 'active' => 1, 'user_id' => $this->session->userdata['user_id']);
             $this->m_db->insert_post($data);
             redirect(base_url() . 'index.php/blog/');
         } else {
